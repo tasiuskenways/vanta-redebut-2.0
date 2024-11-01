@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vanta Arissa 2.0 Debut Celebration!</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: linear-gradient(135deg, #0a192f, #112240);
+        color: #ffffff;
+        font-family: "Arial", sans-serif;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow-x: hidden;
+      }
+
+      .container {
+        text-align: center;
+        padding: clamp(1rem, 5vw, 2rem);
+        position: relative;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .debut-title {
+        font-size: clamp(2rem, 8vw, 4rem);
+        background: linear-gradient(45deg, #4aecd7, #ffffff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        opacity: 0;
+        text-shadow: 0 0 30px rgba(74, 236, 215, 0.5);
+        margin-bottom: 2rem;
+        word-wrap: break-word;
+      }
+
+      .magic-button {
+        padding: clamp(0.8rem, 4vw, 1.5rem) clamp(1.5rem, 6vw, 3rem);
+        font-size: clamp(1rem, 3vw, 1.3rem);
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        background: linear-gradient(45deg, #4aecd7, #2ad1bc);
+        color: #ffffff;
+        position: relative;
+        overflow: hidden;
+        margin-top: clamp(2rem, 4vh, 4rem);
+        transition: transform 0.3s;
+        opacity: 0;
+        box-shadow: 0 5px 15px rgba(74, 236, 215, 0.3);
+      }
+
+      .magic-button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 8px 20px rgba(74, 236, 215, 0.4);
+      }
+
+      .magic-button::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        transition: 0.5s;
+      }
+
+      .magic-button:hover::before {
+        left: 100%;
+      }
+
+      .popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        background: rgba(10, 25, 47, 0.95);
+        padding: clamp(1.5rem, 5vw, 3rem);
+        border-radius: 20px;
+        box-shadow: 0 0 30px rgba(74, 236, 215, 0.3);
+        z-index: 1000;
+        text-align: center;
+        opacity: 0;
+        backdrop-filter: blur(10px);
+        border: 2px solid rgba(74, 236, 215, 0.2);
+        width: min(90%, 500px);
+      }
+
+      .popup-content {
+        font-size: clamp(1rem, 3vw, 1.4rem);
+        color: #ffffff;
+        margin-bottom: 1rem;
+        line-height: 1.6;
+      }
+
+      .popup-close {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: clamp(1.5rem, 4vw, 1.8rem);
+        cursor: pointer;
+        color: #4aecd7;
+        transition: transform 0.3s;
+      }
+
+      .popup-close:hover {
+        transform: scale(1.2);
+        color: #ffffff;
+      }
+
+      .sparkle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background-color: #4aecd7;
+        pointer-events: none;
+      }
+
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.7);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s;
+      }
+
+      .emoji {
+        font-size: clamp(1.5rem, 4vw, 2rem);
+        display: inline-block;
+        margin: 0 5px;
+        animation: bounce 2s infinite;
+      }
+
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .popup .highlight {
+        color: #4aecd7;
+        font-weight: bold;
+      }
+
+      @media (max-width: 480px) {
+        .popup {
+          padding: 1.5rem;
+        }
+
+        .popup-content {
+          font-size: 1rem;
+        }
+
+        .popup-close {
+          top: 10px;
+          right: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="overlay"></div>
+    <div class="container">
+      <h1 class="debut-title">✨ Vanta Arissa 2.0 ✨</h1>
+      <button class="magic-button" onclick="showPopup()">See Message</button>
+    </div>
+
+    <div class="popup">
+      <div class="popup-close" onclick="hidePopup()">×</div>
+      <div class="popup-content">
+        <p>✨ Congratzz For Your 2.0 ✨</p>
+        <br />
+        <p>
+          <span class="highlight">💚 Vanta Arissa / Princess Vanta 💚</span>
+        </p>
+        <br />
+        <p>Keep Up Your Goodworkss💚💚</p>
+        <br />
+        <p>
+          Semoga dengan di 2.0 ini bisa lebih banyak kebahagiaan, tawa, dan
+          momen indah bersama para mantister! 💫
+        </p>
+      </div>
+    </div>
+
+    <script>
+      // Initial animations
+      gsap.to(".debut-title", {
+        opacity: 1,
+        duration: 1,
+        y: 20,
+        ease: "back.out",
+      });
+
+      gsap.to(".magic-button", {
+        opacity: 1,
+        duration: 0.8,
+        y: -20,
+        ease: "power2.out",
+        delay: 0.5,
+      });
+
+      function showPopup() {
+        const popup = document.querySelector(".popup");
+        const overlay = document.querySelector(".overlay");
+
+        overlay.style.opacity = "1";
+        overlay.style.pointerEvents = "auto";
+
+        gsap.set(popup, {
+          opacity: 0,
+          scale: 0,
+          rotation: -180,
+        });
+
+        gsap.to(popup, {
+          opacity: 1,
+          scale: 1,
+          rotation: 0,
+          duration: 0.8,
+          ease: "back.out(1.7)",
+        });
+
+        createSparklesAround();
+      }
+
+      function hidePopup() {
+        const popup = document.querySelector(".popup");
+        const overlay = document.querySelector(".overlay");
+
+        gsap.to(popup, {
+          opacity: 0,
+          scale: 0,
+          rotation: 180,
+          duration: 0.6,
+          ease: "back.in(1.7)",
+        });
+
+        overlay.style.opacity = "0";
+        overlay.style.pointerEvents = "none";
+      }
+
+      function createSparkle(x, y) {
+        const sparkle = document.createElement("div");
+        sparkle.className = "sparkle";
+        document.body.appendChild(sparkle);
+
+        sparkle.style.left = x + "px";
+        sparkle.style.top = y + "px";
+
+        gsap.to(sparkle, {
+          duration: Math.random() * 2 + 1,
+          opacity: 0,
+          scale: 0,
+          x: (Math.random() - 0.5) * 100,
+          y: (Math.random() - 0.5) * 100,
+          ease: "power2.out",
+          onComplete: () => sparkle.remove(),
+        });
+      }
+
+      function createSparklesAround() {
+        const popup = document.querySelector(".popup");
+        const rect = popup.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        const radius = Math.max(rect.width, rect.height) / 2;
+
+        for (let i = 0; i < 20; i++) {
+          const angle = (Math.PI * 2 * i) / 20;
+          const x = centerX + Math.cos(angle) * radius;
+          const y = centerY + Math.sin(angle) * radius;
+          createSparkle(x, y);
+        }
+      }
+
+      // Create random sparkles with reduced frequency on mobile
+      const isMobile = window.innerWidth <= 768;
+      setInterval(
+        () => {
+          createSparkle(
+            Math.random() * window.innerWidth,
+            Math.random() * window.innerHeight
+          );
+        },
+        isMobile ? 1000 : 500
+      );
+    </script>
+  </body>
+</html>
